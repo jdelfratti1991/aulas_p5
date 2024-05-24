@@ -5,15 +5,25 @@ let velocidadex = 10;
 let velocidadey = 5;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 400);
 }
 
 function draw() {
   background(220);
   circle(xbolinha,ybolinha,diametro);
-  xbolinha += velocidadex;
-  if(xbolinha > width || xbolinha<0){
-    velocidadex*=-1;
-  }
-  ybolinha
+  movimentobolinha();
+  verificaborda(); 
+}
+function movimentobolinha(){
+	xbolinha += velocidadex;
+	ybolinha += velocidadey;
+}
+function verificaborda(){
+	if(xbolinha > width || xbolinha<0){
+		velocidadex*=-1;
+	}
+  
+	if(ybolinha > height || ybolinha<0){
+		velocidadey*=-1;
+	}
 }
